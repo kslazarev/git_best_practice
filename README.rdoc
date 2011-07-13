@@ -48,39 +48,39 @@
   
     git pull origin development
 
-= Если нет изменении в ветке 'development':
+=== Если нет изменении в ветке 'development':
 
-7. Объединяем ветки 'development' и ветку 'feature_name'.
+1. Объединяем ветки 'development' и ветку 'feature_name'.
 
     git merge 'feature_name'
 
-8. Отправляем изменения на сервер.
+2. Отправляем изменения на сервер.
 
     git push origin development
 
-= Если есть изменения в ветке 'development':
+=== Если есть изменения в ветке 'development':
  
-7. Создаём временную ветку "dev_'feature_name'".
+1. Создаём временную ветку "dev_'feature_name'".
  
     git checkout -b dev_'feature_name'
 
-8. Объединяем изменения в ветке "dev_'feature_name'" c веткой 'feature_name'. Решаем все конфликты.
-  
+2. Объединяем изменения в ветке "dev_'feature_name'" c веткой 'feature_name'. Решаем все конфликты.
+
     git merge 'feature_name'
 
-10. Тестируем наше объединение.
+3. Тестируем наше объединение.
 
     rake spec
 
-11. Возвращаемся в ветку 'development'
+4. Возвращаемся в ветку 'development'
 
     git checkout development
 
-12. Объединяем ветку 'development' и ветку "dev_'feature_name'"
+5. Объединяем ветку 'development' и ветку "dev_'feature_name'"
 
     git merge dev_'feature_name'
 
-13. Отправляем изменения на сервер и заменяем изменения в ветке 'feature_name' из "dev_'feature_name'".
+6. Отправляем изменения на сервер и заменяем изменения в ветке 'feature_name' из "dev_'feature_name'".
 
     git push origin development
 
