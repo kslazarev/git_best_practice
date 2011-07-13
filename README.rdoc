@@ -1,0 +1,91 @@
+== Работа с git в проекте:
+
+* Общая схема работы.
+
+    http://nvie.com/posts/a-successful-git-branching-model
+
+* Репозитории
+
+    git clone git@github.com:KosyanMedia/nano.git
+
+== Общие правила для работы с задачей 
+
+* Разделяйте полученную задачу на простые подзадачи. Не пытайтесь решать задачу разом. Каждую получившуюся подзадачу завершайте коммитом.
+
+* Тестируйте свои изменения перед отправкой в общий репозитории. Ваши изменения должны быть полностью покрыты тестами.
+
+* Создавайте новые ветки в общем репозитории, только в этих случаях:
+
+  1. Если над задачей работают более одного человека.
+ 
+  2. Если есть необходимость показать ваши изменения перед объединением с веткой 'development'.
+
+* Не создавайте новые ветки, если задача тривиальная и затрагивает только одну, две строки. В данном случае работайте в ветке 'development'.
+  
+== Общие правила работы в проектe с ветками в git:
+
+1. Выбираем 'development' ветку репозитория.
+
+    git checkout development
+
+2. Создаём рабочую ветку для нашей 'feature'.
+ 
+    git checkout -b 'feature_name' 
+
+3. Работаем над 'feature', не забывая про правила стиля кодирования и правила работы с задачей.
+
+    do some magic
+
+4. Тестируем все наши изменения.
+
+    rake spec
+
+5. Возвращаемся в ветку 'development'.
+
+    git checkout development
+
+6. Проверяем ветку на новые изменения, пока мы работали с 'feature'.
+  
+    git pull origin development
+
+= Если нет изменении в ветке 'development':
+
+7. Объединяем ветки 'development' и ветку 'feature_name'.
+
+    git merge 'feature_name'
+
+8. Отправляем изменения на сервер.
+
+    git push origin development
+
+= Если есть изменения в ветке 'development':
+ 
+7. Создаём временную ветку "dev_'feature_name'".
+ 
+    git checkout -b dev_'feature_name'
+
+8. Объединяем изменения в ветке "dev_'feature_name'" c веткой 'feature_name'. Решаем все конфликты.
+  
+    git merge 'feature_name'
+
+10. Тестируем наше объединение.
+
+    rake spec
+
+11. Возвращаемся в ветку 'development'
+
+    git checkout development
+
+12. Объединяем ветку 'development' и ветку "dev_'feature_name'"
+
+    git merge dev_'feature_name'
+
+13. Отправляем изменения на сервер и заменяем изменения в ветке 'feature_name' из "dev_'feature_name'".
+
+    git push origin development
+
+    git checkout dev_'feature_name'
+    git branch -d 'feature_name'
+    git branch -m 'feature_name'
+
+
