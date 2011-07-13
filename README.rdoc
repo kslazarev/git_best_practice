@@ -4,7 +4,7 @@
 
     http://nvie.com/posts/a-successful-git-branching-model
 
-* Репозитории
+* Репозитории.
 
     git clone git@github.com:KosyanMedia/nano.git
 
