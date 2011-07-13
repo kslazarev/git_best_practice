@@ -80,7 +80,7 @@
 
     git merge dev_'feature_name'
 
-6. Отправляем изменения на сервер и заменяем изменения в ветке 'feature_name' из "dev_'feature_name'".
+6. Отправляем изменения на сервер и заменяем векту 'feature_name' на "dev_'feature_name'".
 
     git push origin development
 
